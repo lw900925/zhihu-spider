@@ -1,0 +1,8 @@
+### PyCharm ###
+.idea
+
+### Download File ###
+*.jpg
+*.txt
+
+!wx_discussion_group_expire_2019-5-20.jpg
