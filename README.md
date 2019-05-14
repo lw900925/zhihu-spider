@@ -5,7 +5,7 @@
 这是一个简易的爬虫工具，使用Python语言编写，用于zhihu全自动捕鱼，理论上，你可以爬取你感兴趣的任何问题，而不仅仅是小姐姐。
 
 ## 如何使用
-
+### 编程使用
 请确保你的Python版本是3.x，Windows环境下通过CMD或者PowerShell执行下面的命令：
 
 ```python
@@ -17,6 +17,13 @@ macOS环境，如果你的机器上同时有Python2.x和Python3.x，可通过以
 ```python
 python3 main.py
 ```
+
+### 非编程使用
+
+直接运行 released.exe 即可
+1. 输入title，给命名用存放文件夹命名。
+2. 输入question_id，知乎问题网址 ```https://www.zhihu.com/question/********/answer/########```中的`********`
+3. 等待程序完成
 
 ## 声明
 
