@@ -12,7 +12,7 @@
 python main.py
 ```
 
-macOS环境，如果你的辑器上同时有Python2.x和Python3.x，可通过以下命令运行：
+macOS环境，如果你的机器上同时有Python2.x和Python3.x，可通过以下命令运行：
 
 ```python
 python3 main.py
