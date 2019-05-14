@@ -30,7 +30,7 @@ python3 main.py
 
 ![wx_discussion_group_expire_2019-5-20](wx_discussion_group_expire_2019-5-20.jpg)
 
-让我们一起让变得更好吧。
+我们一起来让它变得更好吧。
 
 ## 写给新手
 
