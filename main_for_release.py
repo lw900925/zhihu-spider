@@ -5,13 +5,14 @@
 # 原始脚本地址：https://www.zhihu.com/question/297715922/answer/676693318
 # 如果觉得我冒犯了你的话，可以私信联系我，我删除。
 
-import re
-import requests
 import os
-import urllib.request
+import re
 import ssl
-from urllib.parse import urlsplit
+import urllib.request
 from os.path import basename
+from urllib.parse import urlsplit
+
+import requests
 
 # 全局禁用证书验证
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -24,7 +25,7 @@ failed_image_list = []
 
 def mkdir(path):
     if not os.path.exists(path):
-        print('新建文件夹：', path)
+        print(u'新建文件夹：', path)
         os.makedirs(path)
         return True
     else:
@@ -71,7 +72,8 @@ def auto_download(image_url, file_name, retry_time):
     try:
         # 判断剩余下载次数是否小于等于0，如果是，就跳过下载
         if retry_time <= 0:
-            print("下载失败，请检查{image_url}链接是否正确（必要时可以手动下载）")
+            print("下载失败，请检查{image_url}链接是否正确（必要时可以手动下载）".format(
+                image_url=image_url))
             failed_image_list.append(image_url)
             return
 
@@ -125,11 +127,11 @@ def get_image_url(qid, headers, path):
     session = requests.Session()
     while True:
         postdata = {'method': 'next',
-                    'params': '{"url_token":%s,"pagesize":%s,"offset":%s}' % (qid, size, offset)}
+                    'params': '{{"url_token":{question_id},"pagesize":{pagesize},"offset":{offset}}}'.format(question_id=qid, pagesize=size, offset=offset)}
         page = session.post(tmp_url, headers=headers, data=postdata)
         ret = eval(page.text)
         answers = ret['msg']
-        print(u"答案数：%d" % (len(answers)))
+        print(u"答案数：", len(answers))
 
         offset += size
 
@@ -160,7 +162,7 @@ def get_image_url(qid, headers, path):
                     write_image_url_to_file(path, [item, answer_id])
                     image_urls.append(item)
                     answer_ids.append(answer_id)
-        print('offset: %d, num : %d' % (offset, len(image_urls)))
+        print('offset:', offset, ',', 'num:', len(image_urls))
 
 
 def write_image_url_to_file(file_name, image_url):
@@ -193,9 +195,9 @@ def read_image_url_from_file(file_name):
 
 
 def main_download():
-    title = input('title%s(命名用)%s:%s' % (' ', ' ', '\n'))
+    title = input('title (命名用) : \n')
     question_id = input(
-        'question_id%s(https://www.zhihu.com/question/********/)%s:%s' % (' ', ' ', '\n'))
+        'question_id (知乎问题网址 https://www.zhihu.com/question/********/answer/######## 中的 ********) : \n')
 
     # title = '拥有一副令人羡慕的好身材是怎样的体验？'
     # question_id = 297715922
