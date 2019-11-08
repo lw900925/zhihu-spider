@@ -33,10 +33,6 @@ python3 main.py
 
 虽然做了比较大的改动，代码的著作权仍然归原作者所有，如果作者不希望公开，请邮件联系我删除。
 
-为方便讨论，新建了一个WX群，扫描二维码加入。
-
-![wx_discussion_group_expire_2019-5-20](wx_discussion_group_expire_2019-5-20.jpg)
-
 我们一起来让它变得更好吧。
 
 ## 写给新手
